@@ -6,6 +6,7 @@ import colors from "colors";
 
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import OrderRoutes from "./routes/OrderRoutes.js";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/orders", OrderRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
