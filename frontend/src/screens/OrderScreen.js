@@ -68,7 +68,8 @@ const OrderScreen = ({ match }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <h1>Order {order._id}</h1>
+      <h1>Your Order</h1>
+      {/* {order._id}</h1> */}
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
@@ -174,21 +175,19 @@ const OrderScreen = ({ match }) => {
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
-                {!order.isPaid && (
-                  <ListGroup.Item>
-                    {loadingPay && <Loader />}
-                    {!sdkReady ? (
-                      <Loader />
-                    ) : (
-                      <PayPalButton
-                        amount={order.totalPrice}
-                        onSuccess={successPaymentHandler}
-                      />
-                    )}
-                  </ListGroup.Item>
-                )}
-              </ListGroup.Item>
+              {!order.isPaid && (
+                <ListGroup.Item>
+                  {loadingPay && <Loader />}
+                  {!sdkReady ? (
+                    <Loader />
+                  ) : (
+                    <PayPalButton
+                      amount={order.totalPrice}
+                      onSuccess={successPaymentHandler}
+                    />
+                  )}
+                </ListGroup.Item>
+              )}
             </ListGroup>
           </Card>
         </Col>
