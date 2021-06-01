@@ -6,6 +6,7 @@ import {
   deleteProduct,
   getProductById,
   getProducts,
+  getTopProducts,
   updateProduct,
   createProduct,
   createProductReview,
@@ -16,7 +17,7 @@ import {
 // @access Public
 router.route("/").get(getProducts).post(protect, admin, createProduct);
 router.route("/:id/reviews").post(protect, createProductReview);
-
+router.get("/top", getTopProducts);
 // @desc Fetch single products
 // @route GET /api/products/:id
 // @access Public
