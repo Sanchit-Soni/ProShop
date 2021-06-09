@@ -69,6 +69,7 @@ const ProductScreen = ({ history, match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          {loading && <Loader />}
           <Meta title={product.name} />
           <Row>
             <Col md={6}>
